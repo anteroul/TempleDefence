@@ -39,6 +39,7 @@ public class ManualAim : MonoBehaviour
         {
             FireTurret();
         }
+        aimDirection = controls.Gameplay.AimTurret.ReadValue<Vector2>();
         RotateTurret();
     }
 
@@ -51,8 +52,8 @@ public class ManualAim : MonoBehaviour
 
     void RotateTurret()
     {
-        Vector2 direction = Input.mousePosition;
-        //Vector2 direction = new Vector2(aimDirection.x, aimDirection.y);
+        aimDirection = Input.mousePosition;
+        Vector2 direction = new Vector2(aimDirection.x, aimDirection.y);
         Vector2 distance = (Vector2)cam.ScreenToWorldPoint(direction) - (Vector2)turret.position;
         float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

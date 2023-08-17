@@ -43,16 +43,16 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 248, y: 196, z: 114, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -137,14 +137,56 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: -687.32336, y: -357}
+      - {x: -683.85956, y: 307.38733}
+      - {x: -242.73975, y: 315.9876}
+      - {x: -210.909, y: 8.831787}
+      - {x: -66.83649, y: 0.5743408}
+      - {x: -80.33447, y: 352.21234}
+      - {x: -204.11981, y: 350.19855}
+      - {x: -208.7027, y: 540}
+      - {x: 206.61902, y: 532.19995}
+      - {x: 224.50867, y: 383.86786}
+      - {x: 64.15674, y: 347.8471}
+      - {x: 79.95947, y: 324.3769}
+      - {x: 464.30176, y: 325.84082}
+      - {x: 484.27393, y: -87.3642}
+      - {x: -355.8742, y: -93.942444}
+      - {x: -364.03363, y: 168.7525}
+      - {x: -533.50616, y: 155.86383}
+      - {x: -529.2566, y: -214.85474}
+      - {x: 653.97375, y: -225.8555}
+      - {x: 623.2582, y: 540}
+      - {x: 791.48364, y: 540}
+      - {x: 841.69556, y: -352.7979}
+    - - {x: 112.84082, y: 37.538025}
+      - {x: 108.58276, y: 182.31519}
+      - {x: 304.45764, y: 173.79889}
+      - {x: 308.71582, y: 33.279907}
+    - - {x: 390, y: 177}
+      - {x: 390, y: 300}
+      - {x: 479, y: 300}
+      - {x: 479, y: 177}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []

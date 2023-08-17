@@ -8,8 +8,8 @@ public class CursorScript : MonoBehaviour
     public float sensitivity = 5.0f;
     public bool isLegal = true;
 
-    private Color originalColor;
-    private SpriteRenderer ren;
+    Color originalColor;
+    SpriteRenderer ren;
 
     void Awake()
     {
@@ -32,6 +32,23 @@ public class CursorScript : MonoBehaviour
         else
         {
             ren.color = originalColor;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "Border")
+        {
+            isLegal = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Border")
+        {
+            isLegal = true;
         }
     }
 }
