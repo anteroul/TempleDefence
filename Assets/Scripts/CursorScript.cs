@@ -21,10 +21,10 @@ public class CursorScript : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-
         Vector2 movement = new Vector2(horizontalInput, verticalInput) * sensitivity * Time.deltaTime;
-        transform.Translate(movement);
         
+        transform.Translate(movement);
+
         if (!isLegal)
         {
             ren.color = newColor;
@@ -37,7 +37,6 @@ public class CursorScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
         if (other.tag == "Border")
         {
             isLegal = false;
