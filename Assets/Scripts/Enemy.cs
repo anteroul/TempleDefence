@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     public Transform[] pathPoints;
     public float moveSpeed;
     public int damage;
-    public Temple temple;
+    
+    Temple temple;
 
     int destination;
 
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         destination = 0;
+        temple = GameObject.FindGameObjectWithTag("Temple").GetComponent<Temple>();
     }
 
     // Update is called once per frame
