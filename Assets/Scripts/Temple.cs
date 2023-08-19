@@ -5,7 +5,7 @@ using UnityEngine;
 public class Temple : MonoBehaviour
 {
     const float maxHealth = 100;
-    public float health;
+    float health;
     
     public Healthbar healthbar;
     
@@ -22,7 +22,7 @@ public class Temple : MonoBehaviour
         healthbar.SetHealth((int)health);
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
     }
