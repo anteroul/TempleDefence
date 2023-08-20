@@ -9,7 +9,7 @@
                     "name": "MoveCursor",
                     "type": "PassThrough",
                     "id": "f5ba82fc-1050-480a-ac2a-5bd07bedf387",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -18,7 +18,7 @@
                     "name": "AimTurret",
                     "type": "PassThrough",
                     "id": "717822b1-d55e-48b2-b807-2e213b1108b9",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -56,7 +56,40 @@
                 },
                 {
                     "name": "",
-                    "id": "dcf27c9a-9ad8-4b7b-8bff-e1cf00767ebc",
+                    "id": "a5441a73-8ac9-4f9c-9d5e-fb272f05d679",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f9f98b75-4eea-45eb-b1ad-2fd833c5807d",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimTurret",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7de2e8cd-b89b-4912-9338-850d4c1c6693",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimTurret",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23145b92-bfcb-4d72-b7d8-8c6d78fc8052",
                     "path": "<DualShockGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
@@ -78,8 +111,52 @@
                 },
                 {
                     "name": "",
+                    "id": "add1caa1-ac60-4b68-8575-bdcf75a5ed01",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "00ae9d08-acfe-4c24-8837-8658d02e786c",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fc3c5673-af41-448e-bffd-5ab0cd4d7c96",
                     "path": "<DualShockGamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlaceTurret",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b699977-d723-414a-b156-5f798d8e76e2",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlaceTurret",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa5d3c73-d0c1-4fed-b1a9-c4dd293bd92f",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

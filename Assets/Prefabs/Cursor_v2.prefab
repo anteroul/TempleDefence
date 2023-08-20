@@ -8,12 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4933967888830580091, guid: a81a24dbf826ad1b6a84a4d7bd4d6c00, type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 5915937063616574215, guid: 8b93894b4950b464f83764d4f084e4af, type: 3}
+    - target: {fileID: 4933967888830580091, guid: a81a24dbf826ad1b6a84a4d7bd4d6c00, type: 3}
       propertyPath: isLegal
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4933967888830580092, guid: a81a24dbf826ad1b6a84a4d7bd4d6c00, type: 3}
       propertyPath: m_Name
-      value: Cursor
+      value: Cursor_v2
       objectReference: {fileID: 0}
     - target: {fileID: 4933967888830580093, guid: a81a24dbf826ad1b6a84a4d7bd4d6c00, type: 3}
       propertyPath: m_RootOrder

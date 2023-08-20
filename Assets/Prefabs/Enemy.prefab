@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8179240156807455631}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathPoints:
-  - {fileID: 313767961722036071, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -135,4 +135,3 @@ MonoBehaviour:
   - {fileID: 0}
   moveSpeed: 0.8
   damage: 20
-  temple: {fileID: 1074600415183453470, guid: ee073f2282fad6e27b9bb939478559eb, type: 3}

@@ -315,7 +315,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &465167484
 MonoBehaviour:
@@ -543,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1074600415183453464, guid: ee073f2282fad6e27b9bb939478559eb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1074600415183453464, guid: ee073f2282fad6e27b9bb939478559eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -642,6 +642,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1544328815274808827, guid: 8c0a96fc853ad8349953b97e3f5fb53f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2767f7039963c53479cdf0fe9c4b52f8, type: 3}
     - target: {fileID: 1544328815274808828, guid: 8c0a96fc853ad8349953b97e3f5fb53f, type: 3}
       propertyPath: m_Name
       value: Jukebox

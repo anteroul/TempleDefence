@@ -12,8 +12,8 @@ public class ManualAim : MonoBehaviour
     public float projectileSpeed = 4.5f;
     public float projectileLifeTime = 4.5f;
 
-    ProjectileScript _projectileScript;
     Vector2 aimDirection;
+    ProjectileScript _projectileScript;
     PlayerControls controls;
 
     void Awake()
@@ -21,25 +21,21 @@ public class ManualAim : MonoBehaviour
         controls = new PlayerControls();
         controls.Gameplay.Fire.performed += ctx => FireTurret();
         controls.Gameplay.AimTurret.performed += ctx => aimDirection = ctx.ReadValue<Vector2>();
-    }
-
-    void Start()
-    {
         _projectileScript = projectile.GetComponent<ProjectileScript>();
     }
 
     void OnEnable()
     {
-        controls.Gameplay.Enable();
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            FireTurret();
-        }
-        aimDirection = controls.Gameplay.AimTurret.ReadValue<Vector2>();
         RotateTurret();
     }
 
@@ -52,7 +48,7 @@ public class ManualAim : MonoBehaviour
 
     void RotateTurret()
     {
-        aimDirection = Input.mousePosition;
+        aimDirection = controls.Gameplay.AimTurret.ReadValue<Vector2>();
         Vector2 direction = new Vector2(aimDirection.x, aimDirection.y);
         Vector2 distance = (Vector2)cam.ScreenToWorldPoint(direction) - (Vector2)turret.position;
         float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
