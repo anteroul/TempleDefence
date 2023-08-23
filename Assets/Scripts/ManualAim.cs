@@ -13,7 +13,7 @@ public class ManualAim : MonoBehaviour
     public float projectileLifeTime = 4.5f;
 
     Vector2 aimDirection;
-    ProjectileScript _projectileScript;
+    ProjectileScript projectileScript;
     PlayerControls controls;
 
     void Awake()
@@ -21,7 +21,8 @@ public class ManualAim : MonoBehaviour
         controls = new PlayerControls();
         controls.Gameplay.Fire.performed += ctx => FireTurret();
         controls.Gameplay.AimTurret.performed += ctx => aimDirection = ctx.ReadValue<Vector2>();
-        _projectileScript = projectile.GetComponent<ProjectileScript>();
+        projectileScript = projectile.GetComponent<ProjectileScript>();
+        projectileScript.projectileType = Type.Dart;
     }
 
     void OnEnable()
@@ -41,8 +42,8 @@ public class ManualAim : MonoBehaviour
 
     void FireTurret()
     {
-        _projectileScript.speed = projectileSpeed;
-        _projectileScript.lifeTime = projectileLifeTime;
+        projectileScript.speed = projectileSpeed;
+        projectileScript.lifeTime = projectileLifeTime;
         Instantiate(projectile, firePoint.position, transform.rotation);
     }
 

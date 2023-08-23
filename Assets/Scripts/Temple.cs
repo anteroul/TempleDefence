@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Temple : MonoBehaviour
 {
-    const float maxHealth = 100;
-    float health;
+    const int maxHealth = 100;
+    int health;
     
     public Healthbar healthbar;
     
     // Start is called before the first frame update
     void Start()
     {
-        healthbar.SetMaxHealth((int)maxHealth);
+        healthbar.SetMaxHealth(maxHealth);
         health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthbar.SetHealth((int)health);
+        healthbar.SetHealth(health);
     }
 
     public void TakeDamage(int damage)
