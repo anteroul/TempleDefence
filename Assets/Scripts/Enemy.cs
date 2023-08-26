@@ -9,28 +9,26 @@ public class Enemy : MonoBehaviour
     public int damage;
     
     Temple temple;
-
-    int destination;
+    int destinationReached;
 
     // Start is called before the first frame update
     void Start()
     {
-        destination = 0;
+        destinationReached = 0;
         temple = GameObject.FindGameObjectWithTag("Temple").GetComponent<Temple>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (destination < pathPoints.Length)
+        if (destinationReached < pathPoints.Length)
         {
-            transform.position = Vector2.MoveTowards(transform.position, pathPoints[destination].position, moveSpeed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, pathPoints[destination].position) < 0.2f)
+            transform.position = Vector2.MoveTowards(transform.position, pathPoints[destinationReached].position, moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, pathPoints[destinationReached].position) < 0.2f)
             {
-                destination++;
+                destinationReached++;
             }
-        } else
-        {
+        } else {
             temple.TakeDamage(damage);
             Destroy(gameObject);
         }
@@ -38,7 +36,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Projectile")
+        if (other.CompareTag("Projectile"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
