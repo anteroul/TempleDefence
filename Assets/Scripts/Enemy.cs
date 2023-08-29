@@ -5,15 +5,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Transform[] pathPoints;
+    public Healthbar healthbar;
+    public GameObject blood;
     public float moveSpeed;
     public int damage;
     
     Temple temple;
+    bool alive;
+    const int maxHealth = 100;
+    int health;
     int destinationReached;
 
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
+        healthbar.SetMaxHealth(maxHealth);
+        health = maxHealth;
         destinationReached = 0;
         temple = GameObject.FindGameObjectWithTag("Temple").GetComponent<Temple>();
     }
@@ -21,16 +29,34 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (destinationReached < pathPoints.Length)
+        if (alive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, pathPoints[destinationReached].position, moveSpeed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, pathPoints[destinationReached].position) < 0.2f)
+            if (health > 0)
             {
-                destinationReached++;
+                if (destinationReached < pathPoints.Length)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, pathPoints[destinationReached].position, moveSpeed * Time.deltaTime);
+                    if (Vector2.Distance(transform.position, pathPoints[destinationReached].position) < 0.2f)
+                    {
+                        destinationReached++;
+                    }
+                }
+                else
+                {
+                    temple.TakeDamage(damage);
+                    Destroy(gameObject);
+                }
             }
+            else if (health <= 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                healthbar.gameObject.SetActive(false);
+                Instantiate(blood, transform);
+                alive = false;
+            }
+            healthbar.SetHealth(health);
         } else {
-            temple.TakeDamage(damage);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 
@@ -38,8 +64,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
+            health -= other.gameObject.GetComponent<ProjectileScript>().damage;
             Destroy(other.gameObject);
-            Destroy(gameObject);
         }
     }
 }
