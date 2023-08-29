@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Turret : MonoBehaviour
 {
@@ -13,49 +12,70 @@ public class Turret : MonoBehaviour
     public float range = 2.5f;
     public float reloadTime = 1.2f;
 
-    GameObject[] enemies;
+#nullable enable
+    GameObject? currentTarget = null;
+#nullable disable
+
     ProjectileScript projectileScript;
+    Vector2 target;
     float reloadTimer;
     bool reloaded;
+    bool targetAcquired;
 
-    void UpdateTargets()
+    GameObject[] UpdateTargets()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void Awake()
     {
+        targetAcquired = false;
         reloaded = true;
         reloadTimer = 0.0f;
         projectileScript = projectile.GetComponent<ProjectileScript>();
-        UpdateTargets();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (reloaded)
+        if (!targetAcquired)
         {
-            if (enemies.Length > 0)
+            foreach (var enemy in UpdateTargets())
             {
-                foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+                if (InRange(enemy.transform.position))
                 {
-                    float distance = Vector2.Distance(enemy.transform.position, gameObject.transform.position);
-                    if (distance <= range)
-                    {
-                        FireTurret();
-                    }
-                    RotateTurret(enemy.transform.position);
+                    currentTarget = enemy;
+                    targetAcquired = true;
                 }
             }
-        } else {
-            reloadTimer += 0.1f * Time.deltaTime;
-            if (reloadTimer >= reloadTime)
+        }
+        else
+        {
+            if (currentTarget != null)
             {
-                reloaded = true;
+                target = currentTarget.transform.position;
+            } else {
+                targetAcquired = false;
+            }
+            if (InRange(target))
+            {
+                if (reloaded)
+                {
+                    FireTurret();
+                }
+                else
+                {
+                    reloadTimer += 0.1f * Time.deltaTime;
+                    if (reloadTimer >= reloadTime)
+                    {
+                        reloaded = true;
+                    }
+                }
+                RotateTurret(target);
+            } else {
+                targetAcquired = false;
             }
         }
-        UpdateTargets();
     }
 
     void FireTurret()
@@ -69,7 +89,20 @@ public class Turret : MonoBehaviour
 
     void RotateTurret(Vector2 target)
     {
-        float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+        Vector2 distance = target - (Vector2)turret.position;
+        float angle = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    bool InRange(Vector2 target)
+    {
+        float distance = Vector2.Distance(target, gameObject.transform.position);
+
+        if (distance <= range)
+        {
+            return true;
+        }
+        
+        return false;
     }
 }

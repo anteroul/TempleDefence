@@ -68,4 +68,9 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    public bool IsAlive()
+    {
+        return alive;
+    }
 }

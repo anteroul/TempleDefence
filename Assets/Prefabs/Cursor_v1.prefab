@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91abe686f75c51799fb6c05fc993ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 5915937063616574215, guid: 8b93894b4950b464f83764d4f084e4af, type: 3}
   newColor: {r: 1, g: 0, b: 0, a: 0.7294118}
   sensitivity: 5
   isLegal: 1
