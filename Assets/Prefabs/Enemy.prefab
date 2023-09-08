@@ -226,6 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9e691b8bb34ca468f22e111ff0565a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: f71cc779f76248b4592111ddbfd212e8, type: 3}
+  - {fileID: 21300000, guid: 11b069200aff7854d87d9c1f343ec14c, type: 3}
   pathPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -238,7 +241,7 @@ MonoBehaviour:
   healthbar: {fileID: 5645098336885358857}
   blood: {fileID: 837207046682071427, guid: b239653824c4c9249835a22b57096e73, type: 3}
   moveSpeed: 0.8
-  damage: 20
+  level: 0
 --- !u!1001 &5973775831991116000
 PrefabInstance:
   m_ObjectHideFlags: 0

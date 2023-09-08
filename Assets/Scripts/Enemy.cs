@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Sprite[] sprites;
     public Transform[] pathPoints;
     public Healthbar healthbar;
     public GameObject blood;
     public float moveSpeed;
-    public int damage;
-    
+    public int level;
+
+    SpriteRenderer ren;
     Temple temple;
     bool alive;
-    const int maxHealth = 100;
+    int damage;
+    int maxHealth;
     int health;
     int destinationReached;
+
+    void Awake()
+    {
+        damage = 20 * level;
+        maxHealth = 100 * level;
+        ren = GetComponent<SpriteRenderer>();
+        ren.sprite = sprites[(int)level];
+    }
 
     // Start is called before the first frame update
     void Start()

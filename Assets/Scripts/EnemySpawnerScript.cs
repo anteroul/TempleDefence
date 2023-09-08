@@ -15,6 +15,7 @@ public class EnemySpawnerScript : MonoBehaviour
     void Awake()
     {
         enemy.GetComponent<Enemy>().pathPoints = path;
+        enemy.GetComponent<Enemy>().level = 1;
     }
 
     // Start is called before the first frame update
