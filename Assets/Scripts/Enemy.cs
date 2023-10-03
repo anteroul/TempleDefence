@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public GameObject blood;
     public float moveSpeed;
     public int level;
-    public GameManager g;
 
     SpriteRenderer ren;
     Temple temple;
@@ -78,7 +77,6 @@ public class Enemy : MonoBehaviour
         {
             health -= other.gameObject.GetComponent<ProjectileScript>().damage;
             Destroy(other.gameObject);
-            g.kills++;
         }
     }
 
