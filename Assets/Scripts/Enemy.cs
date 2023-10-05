@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,6 @@ public class Enemy : MonoBehaviour
     public GameObject blood;
     public float moveSpeed;
     public int level;
-
     SpriteRenderer ren;
     Temple temple;
     bool alive;
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         damage = 20 * level;
-        maxHealth = 100 * level;
+        maxHealth = 1000 * level;
         ren = GetComponent<SpriteRenderer>();
         ren.sprite = sprites[(int)level];
     }

@@ -593,6 +593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple
       objectReference: {fileID: 0}
+    - target: {fileID: 1074600415183453471, guid: ee073f2282fad6e27b9bb939478559eb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee073f2282fad6e27b9bb939478559eb, type: 3}
 --- !u!1001 &1544328815507743159

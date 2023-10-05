@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Temple : GameManager
+public class Temple : MonoBehaviour
 {
     const int maxHealth = 100;
     int health;
@@ -18,19 +20,10 @@ public class Temple : GameManager
     void Update()
     {
         healthbar.SetHealth(health);
-        if (health >= 0)
-        {
-            GameOver();
-        }
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-    }
-
-    public int GetHealth()
-    {
-        return health;
     }
 }
