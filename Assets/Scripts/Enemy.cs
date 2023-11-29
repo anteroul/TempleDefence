@@ -1,7 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
@@ -46,8 +46,13 @@ public class Enemy : MonoBehaviour
             {
                 if (destinationReached < pathPoints.Length)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, pathPoints[destinationReached].position, moveSpeed * Time.deltaTime);
-                    if (Vector2.Distance(transform.position, pathPoints[destinationReached].position) < 0.2f)
+                    transform.position = UnityEngine.Vector2.MoveTowards(transform.position, pathPoints[destinationReached].position, moveSpeed * Time.deltaTime);
+                    float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
+                    if (angle < 90 || angle < -90)
+                    {
+                        transform.rotation = UnityEngine.Quaternion.AngleAxis(angle, UnityEngine.Vector3.forward);
+                    }
+                    if (UnityEngine.Vector2.Distance(transform.position, pathPoints[destinationReached].position) < 0.2f)
                     {
                         destinationReached++;
                     }
@@ -66,7 +71,9 @@ public class Enemy : MonoBehaviour
                 alive = false;
             }
             healthbar.SetHealth(health);
-        } else {
+        }
+        else
+        {
             Destroy(gameObject, 0.5f);
         }
     }
