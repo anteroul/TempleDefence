@@ -6,13 +6,15 @@ using UnityEngine.UIElements;
 public class Enemy : MonoBehaviour
 {
     public Sprite[] sprites;
-    public Transform[] pathPoints;
     public Healthbar healthbar;
+    public GameObject prefab;
     public GameObject blood;
     public float moveSpeed;
     public int level;
+    public Transform[] pathPoints;
     SpriteRenderer ren;
     Temple temple;
+    EnemyBehaviour prefabScript;
     bool alive;
     int damage;
     int maxHealth;
@@ -21,10 +23,9 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        damage = 20 * level;
-        maxHealth = 1000 * level;
-        ren = GetComponent<SpriteRenderer>();
+        ren = gameObject.GetComponent<SpriteRenderer>();
         ren.sprite = sprites[(int)level];
+        Instantiate(prefab);
     }
 
     // Start is called before the first frame update
@@ -33,8 +34,18 @@ public class Enemy : MonoBehaviour
         alive = true;
         healthbar.SetMaxHealth(maxHealth);
         health = maxHealth;
+        damage = 20 * level;
+        maxHealth = 1000 * level;
         destinationReached = 0;
         temple = GameObject.FindGameObjectWithTag("Temple").GetComponent<Temple>();
+        prefabScript = prefab.GetComponent<EnemyBehaviour>();
+        
+        if (!prefabScript.IsAlive())
+        {
+            prefabScript.health = health;
+            prefabScript.GetRenderer().sprite = ren.sprite;
+            prefabScript.alive = alive;
+        }
     }
 
     // Update is called once per frame
@@ -47,11 +58,8 @@ public class Enemy : MonoBehaviour
                 if (destinationReached < pathPoints.Length)
                 {
                     transform.position = UnityEngine.Vector2.MoveTowards(transform.position, pathPoints[destinationReached].position, moveSpeed * Time.deltaTime);
-                    float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
-                    if (angle < 90 || angle < -90)
-                    {
-                        transform.rotation = UnityEngine.Quaternion.AngleAxis(angle, UnityEngine.Vector3.forward);
-                    }
+                    float angle = Mathf.Atan2(pathPoints[destinationReached].position.y, pathPoints[destinationReached].position.x) * Mathf.Rad2Deg;
+                    prefab.transform.rotation = UnityEngine.Quaternion.AngleAxis(angle, UnityEngine.Vector3.forward);
                     if (UnityEngine.Vector2.Distance(transform.position, pathPoints[destinationReached].position) < 0.2f)
                     {
                         destinationReached++;
@@ -65,7 +73,7 @@ public class Enemy : MonoBehaviour
             }
             else if (health <= 0)
             {
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                prefab.GetComponent<SpriteRenderer>().enabled = false;
                 healthbar.gameObject.SetActive(false);
                 Instantiate(blood, transform);
                 alive = false;
@@ -74,7 +82,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.75f);
         }
     }
 
@@ -85,6 +93,7 @@ public class Enemy : MonoBehaviour
             health -= other.gameObject.GetComponent<ProjectileScript>().damage;
             Destroy(other.gameObject);
         }
+        prefabScript.health = health;
     }
 
     public bool IsAlive()

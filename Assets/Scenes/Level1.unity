@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &288108587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 313767960557405051, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+  m_PrefabInstance: {fileID: 1003256893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1003256893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,7 +138,15 @@ PrefabInstance:
     - target: {fileID: 313767961722036068, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 8179240156807455628, guid: 86c953c03ef534c29bc50f4541dd8111, type: 3}
+      objectReference: {fileID: 2260692816655765822, guid: c3dec4878f2304b1ba1d42ef4a150762, type: 3}
+    - target: {fileID: 313767961722036068, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+      propertyPath: path.Array.data[0]
+      value: 
+      objectReference: {fileID: 288108587}
+    - target: {fileID: 313767961722036068, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+      propertyPath: path.Array.data[1]
+      value: 
+      objectReference: {fileID: 1367774802}
     - target: {fileID: 313767961722036069, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
@@ -184,6 +197,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+--- !u!4 &1367774802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 313767961216491299, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+  m_PrefabInstance: {fileID: 1003256893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1410385812
 PrefabInstance:
   m_ObjectHideFlags: 0

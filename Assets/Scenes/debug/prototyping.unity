@@ -184,6 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deabc6cd071992840b87409bbc30a30d, type: 3}
+--- !u!4 &241199349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 313767961216491299, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+  m_PrefabInstance: {fileID: 313767959847460137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &401555370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 313767961025856121, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
@@ -608,6 +613,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 313767961722036068, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+      propertyPath: path.Array.data[1]
+      value: 
+      objectReference: {fileID: 241199349}
+    - target: {fileID: 313767961722036068, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
       propertyPath: path.Array.data[8]
       value: 
       objectReference: {fileID: 548349853}
@@ -615,6 +624,10 @@ PrefabInstance:
       propertyPath: path.Array.data[9]
       value: 
       objectReference: {fileID: 1053011348}
+    - target: {fileID: 313767961722036068, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
+      propertyPath: path.Array.data[10]
+      value: 
+      objectReference: {fileID: 401555370}
     - target: {fileID: 313767961722036069, guid: 23106e59f8d3d2047a78860f20c55a5a, type: 3}
       propertyPath: m_Name
       value: EnemySpawner

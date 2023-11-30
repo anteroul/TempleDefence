@@ -11,11 +11,15 @@ public class EnemySpawnerScript : MonoBehaviour
     public float spawnInterval;
     float spawnTime;
     float timer;
+    GameObject prefab;
+    EnemyBehaviour script;
 
     void Awake()
     {
         enemy.GetComponent<Enemy>().pathPoints = path;
         enemy.GetComponent<Enemy>().level = 1;
+        prefab = enemy.GetComponent<Enemy>().prefab;
+        script = prefab.GetComponent<EnemyBehaviour>();
     }
 
     // Start is called before the first frame update
